@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 
 @RestController
-@RequestMapping("/vi/cliente")
+@RequestMapping("/v1/cliente")
 public interface ClienteAPI {
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
