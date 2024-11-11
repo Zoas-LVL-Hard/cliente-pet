@@ -15,6 +15,8 @@ public class ClienteListResponse {
     private String email;
     private String celular;
 
+    //!Aqui é feita uma conversão de listas com o uso de stream com o map :: new e Collectors.toList(),
+    //!junto com a referencia da classe com o this.
     public static List<ClienteListResponse> converte(List<Cliente> clientes) {
         return clientes.stream()
         .map(ClienteListResponse::new)
