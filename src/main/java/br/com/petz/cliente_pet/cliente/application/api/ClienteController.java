@@ -15,29 +15,31 @@ import lombok.extern.log4j.Log4j2;
 public class ClienteController implements ClienteAPI {
 
     private final ClienteService clienteService;
-
-    @Override
-    public ClienteResponse postCliente(ClienteRequest clienteRequest) {
-        log.info("[Inicia] ClienteController - postCliente");
-        ClienteResponse clienteCriado = clienteService.criaCliente(clienteRequest);
-        log.info("[Finaliza] ClienteController - postCliente");
-        return clienteCriado;
-    }
-
-    @Override
-    public List<ClienteListResponse> getTodosClientes() {
-        log.info("[Inicia] ClienteListResponse - getTodosClientes");
-        List<ClienteListResponse> clientes = clienteService.buscaTodosClientes();
-        log.info("[Finaliza] ClienteListResponse - getTodosClientes");
-        return clientes;
-    }
-
-    @Override
-    public ClienteDetalhadoResponse getClienteAtravesId(UUID idCliente) {
-        log.info("[Inicia] ClienteDetalhadoResponse - getClienteAtravesId");
-        log.info("[idCliente] {}", idCliente);
-        log.info("[Finaliza] ClienteDetalhadoResponse - getClienteAtravesId");
-        return null;
+        
+    
+        @Override
+        public ClienteResponse postCliente(ClienteRequest clienteRequest) {
+            log.info("[Inicia] ClienteController - postCliente");
+            ClienteResponse clienteCriado = clienteService.criaCliente(clienteRequest);
+            log.info("[Finaliza] ClienteController - postCliente");
+            return clienteCriado;
+        }
+    
+        @Override
+        public List<ClienteListResponse> getTodosClientes() {
+            log.info("[Inicia] ClienteController - getTodosClientes");
+            List<ClienteListResponse> clientes = clienteService.buscaTodosClientes();
+            log.info("[Finaliza] ClienteController - getTodosClientes");
+            return clientes;
+        }
+    
+        @Override
+        public ClienteDetalhadoResponse getClienteAtravesId(UUID idCliente) {
+            log.info("[Inicia] ClienteController - getClienteAtravesId");
+            log.info("[idCliente] {}", idCliente);
+            ClienteDetalhadoResponse clienteDetalhado = clienteService.buscaClienteAtravesId(idCliente);
+            log.info("[Finaliza] ClienteController - getClienteAtravesId");
+            return clienteDetalhado;
     }
 
 }
