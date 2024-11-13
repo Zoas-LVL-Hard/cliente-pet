@@ -3,6 +3,7 @@ package br.com.petz.cliente_pet.cliente.infra;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
@@ -21,7 +22,12 @@ public class ClienteInfraRepository implements ClienteRepository {
     @Override
     public Cliente salva(Cliente cliente) {
         log.info("[Inicia] ClienteInfraRepository - salva");
-        clienteSpringDataJPARepository.save(cliente);
+        try {
+            clienteSpringDataJPARepository.save(cliente);
+            
+        } catch (DataIntegrityViolationException e) {
+            throw APIException.build(HttpStatus.BAD_REQUEST, "Cliente já existe!",e);
+        } 
         log.info("[Finaliza] ClienteInfraRepository - salva");
         return cliente;
     }
