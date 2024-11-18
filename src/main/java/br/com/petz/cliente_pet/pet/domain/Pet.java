@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+import br.com.petz.cliente_pet.pet.application.api.PetRequest;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -26,6 +27,9 @@ public class Pet {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(columnDefinition = "uuid", name = "idPet", updatable = false, unique = true, nullable = false)
     private UUID idPet;
+    @NotNull
+    @Column(columnDefinition = "uuid", name = "idClienteTutor", nullable = false)
+    private UUID idClienteTutor;
     @NotBlank
     private String nomePet;
     @Enumerated (EnumType.STRING)
@@ -43,8 +47,24 @@ public class Pet {
     private LocalDate dataDeNasc;
     public String rga;
     public Integer peso;
-
+    
     private LocalDateTime momentoDoCadastro;
     private LocalDateTime dataHoraDaUltimaAlteracao;
-
+    
+    public Pet(UUID idCliente, PetRequest petRequest) {
+        
+        this.nomePet = petRequest.getNomePet();
+        this.idClienteTutor = idCliente;
+        this.porte = petRequest.getPorte();
+        this.tipo = petRequest.getTipo();
+        this.microChip = petRequest.getMicroChip();
+        this.raca = petRequest.getRaca();
+        this.sexo = petRequest.getSexo();
+        this.pelagemCor = petRequest.getPelagemCor();
+        this.dataDeNasc = petRequest.getDataDeNasc();
+        this.rga = petRequest.getRga();
+        this.peso = petRequest.getPeso();
+        this.momentoDoCadastro = LocalDateTime.now();
+        this.dataHoraDaUltimaAlteracao = LocalDateTime.now();
+    }
 }
