@@ -30,11 +30,13 @@ public class Pet {
     private String nomePet;
     @Enumerated (EnumType.STRING)
     private Porte porte;
+    @NotNull
     private TipoPet tipo;
     public String microChip;
     @NotBlank
     public String raca;
     @Enumerated (EnumType.STRING)
+    @NotNull
     public SexoPet sexo;
     public String pelagemCor;
     @NotNull
