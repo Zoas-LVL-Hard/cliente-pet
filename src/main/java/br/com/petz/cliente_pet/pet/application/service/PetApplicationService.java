@@ -31,6 +31,7 @@ public class PetApplicationService implements PetService {
         return new PetResponse(pet.getIdPet());
     }
 
+    //!O metodo converte serve para filtrar/transformar os dados response em uma lista para o front-end. Como o front não usa todas as informações, apenas o necessário é mostrado.
     @Override
     public List<PetClienteListResponse> buscaPetsClienteId(UUID idCliente) {
         log.info("[Inicia] PetApplicationService - buscaPetsClienteId");
