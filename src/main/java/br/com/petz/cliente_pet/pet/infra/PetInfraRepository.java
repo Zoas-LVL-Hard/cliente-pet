@@ -23,12 +23,13 @@ public class PetInfraRepository implements PetRepository {
         log.info("[Finaliza] PetInfraRepository - salvaPet");
         return pet;
     }
+    //!O Uso do var ajuda a deixar menos verboso. Pode ser usado o List<Pet> mas nesse caso o var se sai melhor.
     @Override
     public List<Pet> buscaPetsClienteId(UUID idCliente) {
         log.info("[Inicia] PetInfraRepository - buscaPetsClienteId");
-        //List<Pet> pets = petSpringDataJPARepository.(idCliente);
+        var pets = petSpringDataJPARepository.findByIdClienteTutor(idCliente);
         log.info("[Finaliza] PetInfraRepository - buscaPetsClienteId");
-        return null;
+        return pets;
     }
 
 }
