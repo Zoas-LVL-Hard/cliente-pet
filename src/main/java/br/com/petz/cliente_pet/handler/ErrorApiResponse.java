@@ -1,4 +1,4 @@
-package br.com.petz.cliente_pet.cliente.handler;
+package br.com.petz.cliente_pet.handler;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 

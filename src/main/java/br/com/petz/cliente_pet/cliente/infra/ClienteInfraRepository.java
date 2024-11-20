@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import br.com.petz.cliente_pet.cliente.application.repository.ClienteRepository;
 import br.com.petz.cliente_pet.cliente.domain.Cliente;
-import br.com.petz.cliente_pet.cliente.handler.APIException;
+import br.com.petz.cliente_pet.handler.APIException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
