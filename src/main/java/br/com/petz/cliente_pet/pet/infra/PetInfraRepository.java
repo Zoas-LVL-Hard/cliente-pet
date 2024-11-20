@@ -37,7 +37,7 @@ public class PetInfraRepository implements PetRepository {
     @Override
     public Pet buscaPetId(UUID idPet) {
         log.info("[Inicia] PetInfraRepository - buscaPetId");
-        var pet = petSpringDataJPARepository.findById(idPet).orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Pet não encontrado para esse ID" + idPet));
+        var pet = petSpringDataJPARepository.findById(idPet).orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Pet não encontrado para esse ID " + idPet));
         log.info("[Finaliza] PetInfraRepository - buscaPetId");
         return pet;
     }
