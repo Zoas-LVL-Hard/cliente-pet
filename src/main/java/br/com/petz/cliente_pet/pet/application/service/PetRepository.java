@@ -13,6 +13,8 @@ public interface PetRepository {
 
     Pet buscaPetId(UUID idPet);
 
+    void deletaPet(Pet pet);
+
     
 
 }

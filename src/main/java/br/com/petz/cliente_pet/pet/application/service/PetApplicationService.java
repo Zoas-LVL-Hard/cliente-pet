@@ -55,7 +55,9 @@ public class PetApplicationService implements PetService {
     public void deletaPetClienteId(UUID idCliente, UUID idPet) {
         // TODO Auto-generated method stub
         log.info("[Inicia] PetApplicationService - deletaPetClienteId");
-        
+        clienteService.buscaClienteAtravesId(idCliente);
+        Pet pet = petRepository.buscaPetId(idPet);
+        petRepository.deletaPet(pet);
         log.info("[Finaliza] PetApplicationService - deletaPetClienteId");
     }
 
