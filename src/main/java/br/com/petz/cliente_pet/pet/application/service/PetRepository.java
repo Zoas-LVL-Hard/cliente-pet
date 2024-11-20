@@ -11,6 +11,8 @@ public interface PetRepository {
 
     List<Pet> buscaPetsClienteId(UUID idCliente);
 
+    Pet buscaPetId(UUID idPet);
+
     
 
 }
